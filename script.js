@@ -1,9 +1,32 @@
-﻿const area = document.getElementById("buttonArea");
+const area = document.getElementById("buttonArea");
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
 const result = document.getElementById("result");
+const bgHearts = document.getElementById("bgHearts");
+const musicBtn = document.getElementById("musicBtn");
+const playerWrap = document.getElementById("playerWrap");
+const songFrame = document.getElementById("songFrame");
 
 let noClicks = 0;
+let songLoaded = false;
+
+function createFloatingHearts(count = 28) {
+  if (!bgHearts) {
+    return;
+  }
+
+  for (let i = 0; i < count; i += 1) {
+    const heart = document.createElement("span");
+    heart.className = "heart-float";
+    heart.textContent = "\u2665";
+    heart.style.left = `${Math.random() * 100}%`;
+    heart.style.fontSize = `${12 + Math.random() * 26}px`;
+    heart.style.animationDuration = `${8 + Math.random() * 10}s`;
+    heart.style.animationDelay = `${-Math.random() * 14}s`;
+    heart.style.opacity = `${0.25 + Math.random() * 0.45}`;
+    bgHearts.appendChild(heart);
+  }
+}
 
 function moveNoButton() {
   const areaRect = area.getBoundingClientRect();
@@ -29,6 +52,26 @@ function moveNoButton() {
   }
 }
 
+function toggleMusic() {
+  if (!songLoaded) {
+    songFrame.src = "https://www.youtube.com/embed/nyuo9-OjNNg?autoplay=1&rel=0";
+    songLoaded = true;
+    playerWrap.hidden = false;
+    musicBtn.textContent = "Pause Song";
+    return;
+  }
+
+  if (playerWrap.hidden) {
+    playerWrap.hidden = false;
+    musicBtn.textContent = "Pause Song";
+  } else {
+    playerWrap.hidden = true;
+    musicBtn.textContent = "Play Our Song";
+  }
+}
+
+createFloatingHearts();
+
 noBtn.addEventListener("mouseenter", moveNoButton);
 noBtn.addEventListener("click", moveNoButton);
 
@@ -38,3 +81,5 @@ yesBtn.addEventListener("click", () => {
   yesBtn.disabled = true;
   noBtn.disabled = true;
 });
+
+musicBtn.addEventListener("click", toggleMusic);

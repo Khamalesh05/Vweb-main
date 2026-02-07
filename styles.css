@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --pink: #ff7eb6;
   --hot: #ff3f9f;
   --peach: #ffd1dc;
@@ -19,27 +19,26 @@ body {
   display: grid;
   place-items: center;
   background: radial-gradient(circle at 20% 20%, var(--mint), transparent 45%),
-              radial-gradient(circle at 80% 10%, #ffe3f0, transparent 45%),
-              linear-gradient(135deg, #ffeaf4, #fffdf6);
+    radial-gradient(circle at 80% 10%, #ffe3f0, transparent 45%),
+    linear-gradient(135deg, #ffeaf4, #fffdf6);
   overflow: hidden;
 }
 
-.bg-hearts::before,
-.bg-hearts::after {
-  content: "";
+.bg-hearts {
   position: fixed;
-  inset: -10% -10%;
-  background-image:
-    radial-gradient(circle at 20% 30%, rgba(255,126,182,0.22) 0 18%, transparent 19%),
-    radial-gradient(circle at 80% 60%, rgba(255,63,159,0.18) 0 16%, transparent 17%),
-    radial-gradient(circle at 60% 20%, rgba(255,126,182,0.15) 0 12%, transparent 13%);
-  animation: float 12s ease-in-out infinite;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
   z-index: 0;
 }
 
-.bg-hearts::after {
-  animation-duration: 16s;
-  transform: scale(1.1);
+.heart-float {
+  position: absolute;
+  bottom: -30px;
+  color: rgba(255, 63, 159, 0.38);
+  line-height: 1;
+  animation: rise linear infinite;
+  user-select: none;
 }
 
 .card {
@@ -49,7 +48,7 @@ body {
   padding: 36px 28px 28px;
   border-radius: 28px;
   background: var(--cream);
-  box-shadow: 0 18px 40px rgba(255,63,159,0.2), 0 6px 16px rgba(0,0,0,0.06);
+  box-shadow: 0 18px 40px rgba(255, 63, 159, 0.2), 0 6px 16px rgba(0, 0, 0, 0.06);
   border: 2px solid #ffd6ea;
   text-align: center;
   animation: pop 900ms ease-out;
@@ -66,6 +65,43 @@ body {
   margin-bottom: 12px;
 }
 
+.photo-heart {
+  width: min(430px, 90%);
+  aspect-ratio: 1.15 / 1;
+  margin: 8px auto 16px;
+  background: linear-gradient(145deg, #ff9ccf, #ff5fac);
+  clip-path: path("M215 390 C130 325 12 235 12 136 C12 67 65 20 125 20 C167 20 202 41 215 76 C228 41 263 20 305 20 C365 20 418 67 418 136 C418 235 300 325 215 390 Z");
+  border: 4px solid #ffd6ea;
+  box-shadow: 0 14px 28px rgba(255, 63, 159, 0.3);
+  display: grid;
+  place-items: center;
+  padding-top: 24px;
+}
+
+.photo-track {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  width: 86%;
+}
+
+.photo {
+  width: clamp(118px, 23vw, 168px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.2);
+}
+
+.photo.left {
+  transform: rotate(-6deg);
+}
+
+.photo.right {
+  transform: rotate(6deg);
+}
+
 h1 {
   font-size: clamp(20px, 3.2vw, 30px);
   line-height: 1.35;
@@ -75,6 +111,10 @@ h1 {
 .sub {
   margin: 0 0 20px;
   font-size: 16px;
+}
+
+.music-panel {
+  margin: 0 0 14px;
 }
 
 .buttons {
@@ -97,13 +137,19 @@ h1 {
 .btn.yes {
   background: linear-gradient(135deg, var(--pink), var(--hot));
   color: white;
-  box-shadow: 0 10px 20px rgba(255,63,159,0.35);
+  box-shadow: 0 10px 20px rgba(255, 63, 159, 0.35);
 }
 
 .btn.no {
   background: #fff0f6;
   color: #b3005e;
   border: 2px dashed #ff8ac6;
+}
+
+.btn.music {
+  background: #ffffff;
+  color: #b3005e;
+  border: 2px solid #ff8ac6;
 }
 
 .btn:active {
@@ -114,8 +160,25 @@ h1 {
   transform: translateY(-2px) scale(1.03);
 }
 
-.btn.no:hover {
-  transform: translateY(-2px) rotate(-2deg);
+.btn.no:hover,
+.btn.music:hover {
+  transform: translateY(-2px);
+}
+
+.player-wrap {
+  margin: 12px auto 0;
+  width: min(560px, 92%);
+  border: 2px solid #ffd1dc;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000;
+}
+
+.player-wrap iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
 }
 
 .result {
@@ -139,17 +202,59 @@ h1 {
 }
 
 @keyframes pop {
-  from { transform: scale(0.96); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  from {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(12px); }
-  100% { transform: translateY(0px); }
+@keyframes rise {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
 }
 
 @keyframes shimmer {
-  0% { transform: translateY(6px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
+  0% {
+    transform: translateY(6px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 28px 18px 22px;
+  }
+
+  .photo-heart {
+    width: min(360px, 96%);
+    padding-top: 34px;
+  }
+
+  .photo-track {
+    gap: 10px;
+  }
+
+  .photo {
+    width: clamp(95px, 30vw, 128px);
+  }
 }
