@@ -14,7 +14,7 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: "Comic Neue", "Segoe UI", Tahoma, sans-serif;
+  font-family: "Nunito", "Segoe UI", Tahoma, sans-serif;
   color: var(--ink);
   display: grid;
   place-items: center;
@@ -50,7 +50,7 @@ body {
   background: var(--cream);
   box-shadow: 0 18px 40px rgba(255, 63, 159, 0.2), 0 6px 16px rgba(0, 0, 0, 0.06);
   border: 2px solid #ffd6ea;
-  text-align: center;
+  text-align: left;
   animation: pop 900ms ease-out;
 }
 
@@ -103,18 +103,31 @@ body {
 }
 
 h1 {
-  font-size: clamp(20px, 3.2vw, 30px);
-  line-height: 1.35;
-  margin: 0 0 10px;
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.15;
+  margin: 0 auto 12px;
+  max-width: 18ch;
+  text-align: center;
 }
 
 .sub {
-  margin: 0 0 20px;
-  font-size: 16px;
+  margin: 0 auto 20px;
+  max-width: 48ch;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
 }
 
 .music-panel {
   margin: 0 0 14px;
+  text-align: center;
+}
+
+.music-hint {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #b3005e;
 }
 
 .buttons {
@@ -163,22 +176,6 @@ h1 {
 .btn.no:hover,
 .btn.music:hover {
   transform: translateY(-2px);
-}
-
-.player-wrap {
-  margin: 12px auto 0;
-  width: min(560px, 92%);
-  border: 2px solid #ffd1dc;
-  border-radius: 18px;
-  overflow: hidden;
-  background: #000;
-}
-
-.player-wrap iframe {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border: none;
 }
 
 .result {
@@ -243,6 +240,7 @@ h1 {
 @media (max-width: 640px) {
   .card {
     padding: 28px 18px 22px;
+    text-align: center;
   }
 
   .photo-heart {

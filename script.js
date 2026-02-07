@@ -4,12 +4,11 @@ const yesBtn = document.getElementById("yesBtn");
 const result = document.getElementById("result");
 const bgHearts = document.getElementById("bgHearts");
 const musicBtn = document.getElementById("musicBtn");
-const playerWrap = document.getElementById("playerWrap");
-const songFrame = document.getElementById("songFrame");
-const SONG_URL = "https://www.youtube.com/embed/nyuo9-OjNNg?autoplay=1&rel=0&playsinline=1";
+const loveAudio = document.getElementById("loveAudio");
+const musicHint = document.getElementById("musicHint");
 
 let noClicks = 0;
-let songLoaded = true;
+let isPlaying = false;
 
 function createFloatingHearts(count = 28) {
   if (!bgHearts) {
@@ -54,25 +53,66 @@ function moveNoButton() {
 }
 
 function toggleMusic() {
-  if (playerWrap.hidden) {
-    if (!songLoaded) {
-      songFrame.src = SONG_URL;
-      songLoaded = true;
-    }
-    playerWrap.hidden = false;
-    musicBtn.textContent = "Pause Song";
-  } else {
-    playerWrap.hidden = true;
-    songFrame.src = "";
-    songLoaded = false;
+  if (!loveAudio) {
+    return;
+  }
+
+  if (isPlaying) {
+    loveAudio.pause();
+    isPlaying = false;
     musicBtn.textContent = "Play Our Song";
+  } else {
+    loveAudio.play().then(() => {
+      isPlaying = true;
+      musicBtn.textContent = "Pause Song";
+      if (musicHint) {
+        musicHint.textContent = "Now playing.";
+      }
+    }).catch(() => {
+      if (musicHint) {
+        musicHint.textContent = "Tap Play Our Song to enable audio.";
+      }
+    });
   }
 }
 
+function autoPlaySong() {
+  if (!loveAudio) {
+    return;
+  }
+
+  loveAudio.play().then(() => {
+    isPlaying = true;
+    musicBtn.textContent = "Pause Song";
+    if (musicHint) {
+      musicHint.textContent = "Now playing.";
+    }
+  }).catch(() => {
+    isPlaying = false;
+    musicBtn.textContent = "Play Our Song";
+    if (musicHint) {
+      musicHint.textContent = "Autoplay was blocked. Tap Play Our Song.";
+    }
+  });
+}
+
+if (loveAudio) {
+  loveAudio.addEventListener("ended", () => {
+    isPlaying = false;
+    musicBtn.textContent = "Play Our Song";
+  });
+
+  loveAudio.addEventListener("error", () => {
+    if (musicHint) {
+      musicHint.textContent = "Song file missing. Add assets/song.mp3.";
+    }
+    musicBtn.disabled = true;
+    musicBtn.textContent = "Song Not Found";
+  });
+}
+
 createFloatingHearts();
-songFrame.src = SONG_URL;
-playerWrap.hidden = false;
-musicBtn.textContent = "Pause Song";
+autoPlaySong();
 
 noBtn.addEventListener("mouseenter", moveNoButton);
 noBtn.addEventListener("click", moveNoButton);
@@ -84,4 +124,6 @@ yesBtn.addEventListener("click", () => {
   noBtn.disabled = true;
 });
 
-musicBtn.addEventListener("click", toggleMusic);
+if (musicBtn) {
+  musicBtn.addEventListener("click", toggleMusic);
+}
