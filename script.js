@@ -6,9 +6,10 @@ const bgHearts = document.getElementById("bgHearts");
 const musicBtn = document.getElementById("musicBtn");
 const playerWrap = document.getElementById("playerWrap");
 const songFrame = document.getElementById("songFrame");
+const SONG_URL = "https://www.youtube.com/embed/nyuo9-OjNNg?autoplay=1&rel=0&playsinline=1";
 
 let noClicks = 0;
-let songLoaded = false;
+let songLoaded = true;
 
 function createFloatingHearts(count = 28) {
   if (!bgHearts) {
@@ -53,24 +54,25 @@ function moveNoButton() {
 }
 
 function toggleMusic() {
-  if (!songLoaded) {
-    songFrame.src = "https://www.youtube.com/embed/nyuo9-OjNNg?autoplay=1&rel=0";
-    songLoaded = true;
-    playerWrap.hidden = false;
-    musicBtn.textContent = "Pause Song";
-    return;
-  }
-
   if (playerWrap.hidden) {
+    if (!songLoaded) {
+      songFrame.src = SONG_URL;
+      songLoaded = true;
+    }
     playerWrap.hidden = false;
     musicBtn.textContent = "Pause Song";
   } else {
     playerWrap.hidden = true;
+    songFrame.src = "";
+    songLoaded = false;
     musicBtn.textContent = "Play Our Song";
   }
 }
 
 createFloatingHearts();
+songFrame.src = SONG_URL;
+playerWrap.hidden = false;
+musicBtn.textContent = "Pause Song";
 
 noBtn.addEventListener("mouseenter", moveNoButton);
 noBtn.addEventListener("click", moveNoButton);
