@@ -18,10 +18,10 @@ body {
   color: var(--ink);
   display: grid;
   place-items: center;
-  background: radial-gradient(circle at 18% 12%, rgba(255, 156, 192, 0.26), transparent 38%),
-    radial-gradient(circle at 86% 14%, rgba(255, 130, 174, 0.22), transparent 36%),
-    radial-gradient(circle at 50% 80%, rgba(255, 58, 108, 0.22), transparent 50%),
-    linear-gradient(156deg, #2f0009, #520013 28%, #76001c 52%, #980026 74%, #bb0f3d 100%);
+  background: radial-gradient(circle at 18% 12%, rgba(255, 136, 182, 0.18), transparent 36%),
+    radial-gradient(circle at 86% 14%, rgba(255, 108, 160, 0.16), transparent 34%),
+    radial-gradient(circle at 50% 82%, rgba(255, 48, 98, 0.16), transparent 48%),
+    linear-gradient(160deg, #1b0006, #2f000b 24%, #4a0013 46%, #650019 68%, #870022 86%, #a80a31 100%);
   overflow: hidden;
 }
 
@@ -97,6 +97,8 @@ body {
   display: grid;
   place-items: center;
   padding-top: 24px;
+  animation: heartbeat 1.45s ease-in-out infinite;
+  transform-origin: center;
 }
 
 .photo-track {
