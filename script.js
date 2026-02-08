@@ -10,7 +10,7 @@ const musicHint = document.getElementById("musicHint");
 let noClicks = 0;
 let isPlaying = false;
 
-function createFloatingHearts(count = 52) {
+function createFloatingHearts(count = 90) {
   if (!bgHearts) {
     return;
   }
@@ -20,10 +20,10 @@ function createFloatingHearts(count = 52) {
     heart.className = "heart-float";
     heart.textContent = "\u2665";
     heart.style.left = `${Math.random() * 100}%`;
-    heart.style.fontSize = `${10 + Math.random() * 24}px`;
-    heart.style.animationDuration = `${6 + Math.random() * 8}s`;
-    heart.style.animationDelay = `${-Math.random() * 12}s`;
-    heart.style.opacity = `${0.3 + Math.random() * 0.5}`;
+    heart.style.fontSize = `${8 + Math.random() * 22}px`;
+    heart.style.animationDuration = `${5 + Math.random() * 6}s`;
+    heart.style.animationDelay = `${-Math.random() * 10}s`;
+    heart.style.opacity = `${0.35 + Math.random() * 0.55}`;
     bgHearts.appendChild(heart);
   }
 }

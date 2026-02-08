@@ -18,9 +18,10 @@ body {
   color: var(--ink);
   display: grid;
   place-items: center;
-  background: radial-gradient(circle at 18% 16%, rgba(255, 210, 226, 0.34), transparent 46%),
-    radial-gradient(circle at 82% 12%, rgba(255, 176, 205, 0.35), transparent 44%),
-    linear-gradient(145deg, #8f001f, #bf143f 42%, #e3305b 72%, #f24878);
+  background: radial-gradient(circle at 18% 12%, rgba(255, 186, 210, 0.28), transparent 40%),
+    radial-gradient(circle at 86% 14%, rgba(255, 146, 184, 0.25), transparent 38%),
+    radial-gradient(circle at 50% 80%, rgba(255, 62, 112, 0.2), transparent 52%),
+    linear-gradient(152deg, #4a0010, #7c001f 32%, #a3002d 58%, #ca1b4a 78%, #df3565);
   overflow: hidden;
 }
 
@@ -35,7 +36,7 @@ body {
 .heart-float {
   position: absolute;
   bottom: -30px;
-  color: rgba(255, 205, 223, 0.62);
+  color: rgba(255, 215, 229, 0.78);
   line-height: 1;
   animation: rise linear infinite;
   user-select: none;
@@ -47,9 +48,9 @@ body {
   width: min(820px, 92vw);
   padding: 36px 28px 28px;
   border-radius: 28px;
-  background: var(--cream);
-  box-shadow: 0 18px 40px rgba(255, 63, 159, 0.2), 0 6px 16px rgba(0, 0, 0, 0.06);
-  border: 2px solid #ffd6ea;
+  background: rgba(255, 248, 251, 0.94);
+  box-shadow: 0 20px 44px rgba(88, 0, 23, 0.36), 0 6px 16px rgba(0, 0, 0, 0.08);
+  border: 2px solid #ffc4de;
   text-align: left;
   animation: pop 900ms ease-out;
 }
