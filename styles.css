@@ -66,9 +66,9 @@ body {
 }
 
 .photo-heart {
-  width: min(430px, 90%);
+  width: min(390px, 84%);
   aspect-ratio: 1.15 / 1;
-  margin: 8px auto 16px;
+  margin: 6px auto 14px;
   background: linear-gradient(145deg, #ff9ccf, #ff5fac);
   clip-path: path("M215 390 C130 325 12 235 12 136 C12 67 65 20 125 20 C167 20 202 41 215 76 C228 41 263 20 305 20 C365 20 418 67 418 136 C418 235 300 325 215 390 Z");
   border: 4px solid #ffd6ea;
@@ -86,10 +86,11 @@ body {
 }
 
 .photo {
-  width: clamp(118px, 23vw, 168px);
+  width: clamp(104px, 19vw, 145px);
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   object-fit: cover;
+  image-rendering: auto;
   border: 4px solid #fff;
   box-shadow: 0 10px 18px rgba(0, 0, 0, 0.2);
 }
@@ -103,12 +104,21 @@ body {
 }
 
 h1 {
-  font-family: "Dancing Script", cursive;
-  font-size: clamp(32px, 5vw, 52px);
-  line-height: 1.15;
-  margin: 0 auto 12px;
-  max-width: 18ch;
+  font-family: "Baloo 2", "Nunito", sans-serif;
+  font-size: clamp(34px, 5vw, 56px);
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  line-height: 1.06;
+  margin: -2px auto 10px;
+  max-width: 17ch;
   text-align: center;
+  color: #ff3f9f;
+  text-shadow:
+    0 1px 0 #ffd9ec,
+    0 2px 0 #ffd9ec,
+    0 3px 0 #ffc3e0,
+    0 4px 0 #ffabd4,
+    0 8px 18px rgba(179, 0, 94, 0.28);
 }
 
 .sub {
@@ -244,7 +254,7 @@ h1 {
   }
 
   .photo-heart {
-    width: min(360px, 96%);
+    width: min(325px, 88%);
     padding-top: 34px;
   }
 
@@ -253,6 +263,6 @@ h1 {
   }
 
   .photo {
-    width: clamp(95px, 30vw, 128px);
+    width: clamp(86px, 25vw, 118px);
   }
 }
