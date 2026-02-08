@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Valentine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-hearts" id="bgHearts" aria-hidden="true"></div>
+  <div class="corner-heart left" aria-hidden="true">&#10084;</div>
+  <div class="corner-heart right" aria-hidden="true">&#10084;</div>
+  <main class="card">
+    <div class="badge">For Doryy</div>
+    <section class="photo-heart" aria-label="Our photos">
+      <div class="photo-track">
+        <img src="assets/me.jpeg" alt="My photo" class="photo left" />
+        <img src="assets/Baby.jpeg" alt="Your photo" class="photo right" />
+      </div>
+    </section>
+    <h1>Hii Babygirl &#10084;<br />You might forget some things, But<br />Never being a sweet, Caring &amp; lovable girlfriend<br />Will you be my Valentine?</h1>
+    <p class="sub">I made this just for you.</p>
+
+    <section class="music-panel">
+      <button class="btn music" id="musicBtn" type="button">Play Our Song</button>
+      <p class="music-hint" id="musicHint">If audio does not autoplay, tap the button once.</p>
+      <audio id="loveAudio" preload="auto" loop hidden>
+        <source src="assets/song.mp3" type="audio/mpeg" />
+      </audio>
+    </section>
+
+    <div class="buttons" id="buttonArea">
+      <button class="btn yes" id="yesBtn">YES</button>
+      <button class="btn no" id="noBtn">No</button>
+    </div>
+
+    <div class="result" id="result" aria-live="polite">
+      <div class="sparkles">* * * *</div>
+      <div class="msg">Yesss! You just made my whole day.</div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
