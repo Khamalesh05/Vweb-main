@@ -46,7 +46,7 @@ body {
   position: fixed;
   bottom: 24px;
   z-index: 1;
-  font-size: clamp(52px, 6vw, 86px);
+  font-size: clamp(86px, 12vw, 170px);
   color: rgba(255, 198, 222, 0.88);
   line-height: 1;
   pointer-events: none;
@@ -68,9 +68,9 @@ body {
   width: min(820px, 92vw);
   padding: 36px 28px 28px;
   border-radius: 28px;
-  background: rgba(255, 248, 251, 0.94);
-  box-shadow: 0 20px 44px rgba(88, 0, 23, 0.36), 0 6px 16px rgba(0, 0, 0, 0.08);
-  border: 2px solid #ffc4de;
+  background: transparent;
+  box-shadow: none;
+  border: none;
   text-align: left;
   animation: pop 900ms ease-out;
 }
@@ -310,7 +310,7 @@ h1 {
 
   .corner-heart {
     bottom: 14px;
-    font-size: clamp(40px, 12vw, 64px);
+    font-size: clamp(68px, 22vw, 130px);
   }
 
   .corner-heart.left {
