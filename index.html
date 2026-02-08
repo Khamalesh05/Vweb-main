@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>For Dorry</title>
+  <title>For DORYY</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&display=swap" rel="stylesheet" />
@@ -16,33 +16,84 @@
       place-items: center;
       font-family: "Baloo 2", sans-serif;
       background:
-        radial-gradient(circle at 20% 20%, rgba(255, 160, 196, 0.2), transparent 38%),
-        radial-gradient(circle at 80% 18%, rgba(255, 130, 176, 0.18), transparent 34%),
-        linear-gradient(160deg, #1b0006, #3c000f 38%, #6a001c 70%, #930028 100%);
+        radial-gradient(circle at 20% 20%, rgba(255, 145, 185, 0.2), transparent 36%),
+        radial-gradient(circle at 80% 18%, rgba(255, 120, 170, 0.18), transparent 34%),
+        linear-gradient(160deg, #160005, #33000d 38%, #5b0018 70%, #860026 100%);
       overflow: hidden;
     }
-    .start-btn {
-      display: inline-block;
-      padding: 18px 40px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-size: clamp(28px, 6vw, 56px);
-      font-weight: 800;
-      letter-spacing: 0.6px;
-      color: #ffe8f3;
-      background: linear-gradient(135deg, #ff4f8d, #d80052);
-      border: 3px solid #ffc2de;
-      box-shadow: 0 16px 40px rgba(40, 0, 13, 0.45);
-      text-shadow: 0 2px 0 rgba(126, 0, 42, 0.5);
-      transition: transform 160ms ease, box-shadow 160ms ease;
+    .entry {
+      text-align: center;
+      padding: 18px;
     }
-    .start-btn:hover {
-      transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 22px 44px rgba(40, 0, 13, 0.55);
+    .title {
+      margin: 0 0 16px;
+      font-size: clamp(30px, 7vw, 60px);
+      font-weight: 800;
+      color: #ffd5e8;
+      letter-spacing: 1px;
+      text-shadow: 0 3px 0 rgba(110, 0, 37, 0.6), 0 12px 22px rgba(20, 0, 7, 0.55);
+    }
+    .envelope-btn {
+      display: inline-block;
+      width: min(520px, 88vw);
+      aspect-ratio: 1.7 / 1;
+      position: relative;
+      text-decoration: none;
+      filter: drop-shadow(0 22px 28px rgba(24, 0, 8, 0.5));
+      transition: transform 170ms ease;
+    }
+    .envelope-btn:hover {
+      transform: translateY(-4px) scale(1.02);
+    }
+    .envelope-body {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, #ff3c6f, #d10044 70%);
+      border: 3px solid #ff95bd;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+    .envelope-body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      clip-path: polygon(0 0, 50% 54%, 100% 0, 100% 100%, 0 100%);
+      background: linear-gradient(180deg, #ff6f98, #eb1d5a 70%);
+    }
+    .envelope-body::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 42%;
+      width: 54px;
+      height: 54px;
+      transform: translate(-50%, -50%) rotate(45deg);
+      background: #ffb2cf;
+      border-radius: 8px;
+      box-shadow: 0 0 0 4px rgba(255, 66, 123, 0.45);
+    }
+    .tap {
+      position: absolute;
+      bottom: 14px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: #ffeaf3;
+      font-size: clamp(15px, 2.6vw, 22px);
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-shadow: 0 2px 0 rgba(126, 0, 42, 0.55);
+      z-index: 2;
     }
   </style>
 </head>
 <body>
-  <a class="start-btn" href="valentine.html">For Dorry</a>
+  <main class="entry">
+    <h1 class="title">For DORYY</h1>
+    <a class="envelope-btn" href="valentine.html" aria-label="Open for DORYY">
+      <span class="envelope-body"></span>
+      <span class="tap">Open Me</span>
+    </a>
+  </main>
 </body>
 </html>
