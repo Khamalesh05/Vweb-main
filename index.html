@@ -25,50 +25,107 @@
       text-align: center;
       padding: 18px;
     }
-    .love-btn {
-      display: inline-block;
-      min-width: min(520px, 88vw);
-      padding: clamp(18px, 3.3vw, 30px) clamp(36px, 7vw, 76px);
+    .scene {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(14px, 3vw, 34px);
+      width: min(980px, 94vw);
+    }
+    .cupid {
+      font-size: clamp(68px, 12vw, 140px);
+      line-height: 1;
+      text-shadow: 0 8px 18px rgba(30, 0, 10, 0.45);
+      user-select: none;
+      --sx: 1;
+      animation: drift 2.2s ease-in-out infinite;
+    }
+    .cupid.left {
+      --sx: -1;
+    }
+    .heart-link {
+      display: grid;
+      place-items: center;
+      width: clamp(170px, 30vw, 280px);
+      height: clamp(170px, 30vw, 280px);
       position: relative;
       text-decoration: none;
-      border-radius: 999px;
-      background: linear-gradient(160deg, #ff6a9a, #ff2b70 45%, #d10049 100%);
-      border: 3px solid #ffc3dc;
-      box-shadow: 0 20px 32px rgba(27, 0, 9, 0.5), inset 0 -8px 14px rgba(141, 0, 45, 0.36);
+      transform: rotate(-45deg);
+      background: linear-gradient(150deg, #ff5a8d, #d40043 62%, #ad0033);
+      border: 4px solid #ffc4dd;
+      border-top: none;
+      border-right: none;
+      border-radius: 22px 0 12px 0;
+      box-shadow: 0 18px 34px rgba(29, 0, 9, 0.5), inset 0 -12px 18px rgba(128, 0, 40, 0.38);
       transition: transform 170ms ease, box-shadow 170ms ease;
     }
-    .love-btn::before {
+    .heart-link::before {
       content: "";
       position: absolute;
-      left: 8%;
-      right: 8%;
-      top: 10%;
-      height: 40%;
-      border-radius: 999px;
-      background: linear-gradient(180deg, rgba(255, 239, 247, 0.66), rgba(255, 239, 247, 0));
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: -50%;
+      border-radius: 50%;
+      background: inherit;
+      border: 4px solid #ffc4dd;
+      border-bottom: none;
+      border-right: none;
     }
-    .love-btn:hover {
-      transform: translateY(-4px) scale(1.03);
-      box-shadow: 0 24px 40px rgba(27, 0, 9, 0.58), inset 0 -8px 14px rgba(141, 0, 45, 0.4);
+    .heart-link::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 50%;
+      top: 0;
+      border-radius: 50%;
+      background: inherit;
+      border: 4px solid #ffc4dd;
+      border-bottom: none;
+      border-left: none;
     }
-    .btn-label {
+    .heart-link:hover {
+      transform: rotate(-45deg) translateY(-4px) scale(1.03);
+      box-shadow: 0 24px 42px rgba(24, 0, 8, 0.6), inset 0 -12px 18px rgba(128, 0, 40, 0.44);
+    }
+    .heart-text {
       position: relative;
       z-index: 2;
-      display: inline-block;
       text-align: center;
-      color: #ffe6f1;
-      font-size: clamp(30px, 6vw, 62px);
+      color: #ffeaf3;
+      font-size: clamp(28px, 5vw, 56px);
       font-weight: 800;
       letter-spacing: 0.9px;
-      text-shadow: 0 3px 0 rgba(126, 0, 42, 0.58), 0 10px 18px rgba(31, 0, 10, 0.46);
+      text-shadow: 0 3px 0 rgba(126, 0, 42, 0.58), 0 10px 18px rgba(31, 0, 10, 0.52);
+      transform: rotate(45deg);
+    }
+    @keyframes drift {
+      0%, 100% { transform: scaleX(var(--sx)) translateY(0); }
+      50% { transform: scaleX(var(--sx)) translateY(-6px); }
+    }
+    @media (max-width: 640px) {
+      .scene {
+        gap: 10px;
+      }
+      .cupid {
+        font-size: clamp(42px, 15vw, 88px);
+      }
+      .cupid.left {
+        --sx: -1;
+      }
     }
   </style>
 </head>
 <body>
   <main class="entry">
-    <a class="love-btn" href="valentine.html" aria-label="Open for Doryy">
-      <span class="btn-label">For Doryy</span>
-    </a>
+    <div class="scene">
+      <span class="cupid left" aria-hidden="true">&#128124;</span>
+      <a class="heart-link" href="valentine.html" aria-label="Open for Doryy">
+        <span class="heart-text">For Doryy</span>
+      </a>
+      <span class="cupid right" aria-hidden="true">&#128124;</span>
+    </div>
   </main>
 </body>
 </html>
