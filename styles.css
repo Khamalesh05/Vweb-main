@@ -87,16 +87,33 @@ body {
 }
 
 .photo-heart {
-  width: min(390px, 84%);
-  aspect-ratio: 1.15 / 1;
+  width: min(420px, 88%);
+  aspect-ratio: 1 / 0.92;
   margin: 6px auto 14px;
   background: linear-gradient(145deg, #ff2e55, #d40030 65%, #b30028);
-  clip-path: path("M215 390 C130 325 12 235 12 136 C12 67 65 20 125 20 C167 20 202 41 215 76 C228 41 263 20 305 20 C365 20 418 67 418 136 C418 235 300 325 215 390 Z");
+  clip-path: polygon(
+    50% 95%,
+    30% 79%,
+    16% 66%,
+    7% 52%,
+    6% 36%,
+    13% 23%,
+    24% 14%,
+    37% 13%,
+    50% 22%,
+    63% 13%,
+    76% 14%,
+    87% 23%,
+    94% 36%,
+    93% 52%,
+    84% 66%,
+    70% 79%
+  );
   border: 4px solid #ff9bbc;
   box-shadow: 0 16px 34px rgba(115, 0, 28, 0.5), 0 0 22px rgba(255, 84, 130, 0.35);
   display: grid;
   place-items: center;
-  padding-top: 24px;
+  padding: 58px 34px 52px;
   animation: heartbeat 1.45s ease-in-out infinite;
   transform-origin: center;
 }
@@ -104,26 +121,27 @@ body {
 .photo-track {
   display: flex;
   justify-content: center;
-  gap: 16px;
-  width: 86%;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
 }
 
 .photo {
-  width: clamp(104px, 19vw, 145px);
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
+  width: clamp(104px, 18vw, 138px);
+  aspect-ratio: 3 / 4;
+  border-radius: 18px;
   object-fit: cover;
   image-rendering: auto;
   border: 4px solid #fff;
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.28);
 }
 
 .photo.left {
-  transform: rotate(-6deg);
+  transform: rotate(-8deg);
 }
 
 .photo.right {
-  transform: rotate(6deg);
+  transform: rotate(8deg);
 }
 
 h1 {
@@ -298,8 +316,8 @@ h1 {
   }
 
   .photo-heart {
-    width: min(325px, 88%);
-    padding-top: 34px;
+    width: min(340px, 90%);
+    padding: 46px 24px 44px;
   }
 
   .photo-track {
@@ -307,7 +325,7 @@ h1 {
   }
 
   .photo {
-    width: clamp(86px, 25vw, 118px);
+    width: clamp(86px, 24vw, 112px);
   }
 
   .corner-heart {
