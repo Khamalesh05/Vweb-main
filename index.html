@@ -36,6 +36,17 @@
       text-shadow: 0 0 10px rgba(255, 99, 157, 0.55), 0 10px 20px rgba(42, 0, 14, 0.5);
       user-select: none;
     }
+    .hearts .solid {
+      color: rgba(255, 183, 210, 0.9);
+    }
+    .hearts .outline {
+      color: rgba(255, 225, 236, 0.88);
+      animation: pulse 1.6s ease-in-out infinite;
+    }
+    .hearts .tiny {
+      color: rgba(255, 150, 192, 0.85);
+      animation: twinkle 1.9s ease-in-out infinite;
+    }
     .h1 { left: 6%; top: 12%; font-size: 34px; animation-delay: -0.1s; }
     .h2 { left: 16%; top: 28%; font-size: 42px; animation-delay: -0.6s; }
     .h3 { left: 10%; top: 52%; font-size: 30px; animation-delay: -1.0s; }
@@ -123,6 +134,11 @@
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-8px); }
     }
+    @keyframes twinkle {
+      0%, 100% { transform: scale(0.9); opacity: 0.75; }
+      40% { transform: scale(1.18); opacity: 1; }
+      70% { transform: scale(1); opacity: 0.9; }
+    }
     @media (max-width: 640px) {
       .h1, .h2, .h3, .h4, .h5, .h6, .h7, .h8, .h9, .h10,
       .h11, .h12, .h13, .h14, .h15, .h16, .h17, .h18, .h19, .h20 {
@@ -133,10 +149,10 @@
 </head>
 <body>
   <div class="hearts" aria-hidden="true">
-    <span class="h1">&#10084;</span><span class="h2">&#10084;</span><span class="h3">&#10084;</span><span class="h4">&#10084;</span><span class="h5">&#10084;</span>
-    <span class="h6">&#10084;</span><span class="h7">&#10084;</span><span class="h8">&#10084;</span><span class="h9">&#10084;</span><span class="h10">&#10084;</span>
-    <span class="h11">&#10084;</span><span class="h12">&#10084;</span><span class="h13">&#10084;</span><span class="h14">&#10084;</span><span class="h15">&#10084;</span>
-    <span class="h16">&#10084;</span><span class="h17">&#10084;</span><span class="h18">&#10084;</span><span class="h19">&#10084;</span><span class="h20">&#10084;</span>
+    <span class="h1 solid">&#10084;</span><span class="h2 outline">&#9825;</span><span class="h3 tiny">&#9829;</span><span class="h4 solid">&#10084;</span><span class="h5 outline">&#9825;</span>
+    <span class="h6 tiny">&#9829;</span><span class="h7 solid">&#10084;</span><span class="h8 outline">&#9825;</span><span class="h9 tiny">&#9829;</span><span class="h10 solid">&#10084;</span>
+    <span class="h11 outline">&#9825;</span><span class="h12 tiny">&#9829;</span><span class="h13 solid">&#10084;</span><span class="h14 outline">&#9825;</span><span class="h15 tiny">&#9829;</span>
+    <span class="h16 solid">&#10084;</span><span class="h17 outline">&#9825;</span><span class="h18 tiny">&#9829;</span><span class="h19 solid">&#10084;</span><span class="h20 outline">&#9825;</span>
   </div>
 
   <main class="entry">
