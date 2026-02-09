@@ -65,7 +65,7 @@ body {
 .card {
   position: relative;
   z-index: 1;
-  width: min(820px, 92vw);
+  width: min(980px, 95vw);
   padding: 36px 28px 28px;
   border-radius: 28px;
   background: transparent;
@@ -133,7 +133,7 @@ h1 {
   letter-spacing: 0.4px;
   line-height: 1.06;
   margin: -2px auto 10px;
-  max-width: 17ch;
+  max-width: 25ch;
   text-align: center;
   color: #ff3f9f;
   text-shadow:
