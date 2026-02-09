@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Date Plan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: "Nunito", sans-serif;
+      background:
+        radial-gradient(circle at 16% 16%, rgba(255, 143, 186, 0.2), transparent 40%),
+        radial-gradient(circle at 84% 20%, rgba(255, 108, 160, 0.18), transparent 38%),
+        linear-gradient(160deg, #180006, #32000d 34%, #560016 66%, #7f0024 100%);
+      color: #ffe6f2;
+      overflow: hidden;
+    }
+    .card {
+      width: min(760px, 92vw);
+      border-radius: 24px;
+      padding: 26px 24px 24px;
+      background: rgba(255, 228, 240, 0.09);
+      border: 2px solid rgba(255, 186, 215, 0.5);
+      box-shadow: 0 18px 30px rgba(27, 0, 9, 0.48);
+      backdrop-filter: blur(2px);
+    }
+    .title {
+      margin: 0 0 16px;
+      text-align: center;
+      font-family: "Baloo 2", sans-serif;
+      font-size: clamp(30px, 5vw, 50px);
+      background-image: linear-gradient(120deg, #ff8cc4 0%, #ffd5ec 22%, #ff67af 45%, #ffe0f0 67%, #ff8cc4 100%);
+      background-size: 260% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: shine 2.8s linear infinite;
+    }
+    .item {
+      margin: 8px 0;
+      font-size: clamp(18px, 2.7vw, 24px);
+      line-height: 1.45;
+    }
+    .item b {
+      color: #ffc9e3;
+      font-weight: 800;
+      margin-right: 8px;
+    }
+    .plan-text {
+      margin-top: 12px;
+      white-space: pre-line;
+    }
+    .back {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      color: #ffe9f4;
+      background: linear-gradient(135deg, #ff5ea5, #cc0051);
+      border: 2px solid #ffc9e3;
+    }
+    @keyframes shine {
+      from { background-position: 0% center; }
+      to { background-position: 260% center; }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1 class="title">Our Date Plan</h1>
+    <p class="item"><b>Venue:</b> FaceTime</p>
+    <p class="item"><b>Date:</b> 15th of Feb</p>
+    <p class="item"><b>Time:</b> After Pre - Duty</p>
+    <p class="item plan-text"><b>Plan:</b> Cooking Pasta,
+Watching a Romantic movie,
+Playing a game and relationship trivia
+xx If i was near then finally coitus ;) xx</p>
+    <a class="back" href="yay.html">Back</a>
+  </main>
+</body>
+</html>
