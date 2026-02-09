@@ -1,7 +1,6 @@
 const area = document.getElementById("buttonArea");
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
-const result = document.getElementById("result");
 const bgHearts = document.getElementById("bgHearts");
 const loveAudio = document.getElementById("loveAudio");
 
@@ -77,8 +76,5 @@ noBtn.addEventListener("mouseenter", moveNoButton);
 noBtn.addEventListener("click", moveNoButton);
 
 yesBtn.addEventListener("click", () => {
-  result.classList.add("show");
-  yesBtn.textContent = "YAY!";
-  yesBtn.disabled = true;
-  noBtn.disabled = true;
+  window.location.href = "yay.html";
 });
