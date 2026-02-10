@@ -82,6 +82,57 @@
       background: linear-gradient(135deg, #ff5ea5, #cc0051);
       border: 2px solid #ffc9e3;
     }
+    .date-question {
+      margin-top: 16px;
+      padding: 14px 12px 18px;
+      border-radius: 14px;
+      background: rgba(255, 221, 236, 0.15);
+      border: 2px solid rgba(255, 192, 221, 0.45);
+      text-align: center;
+    }
+    .q-title {
+      margin: 0 0 14px;
+      font-family: "Baloo 2", sans-serif;
+      font-size: clamp(24px, 3.7vw, 40px);
+      color: #ffd6ea;
+      text-shadow: 0 2px 8px rgba(45, 0, 14, 0.45);
+    }
+    .answers {
+      position: relative;
+      min-height: 78px;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .answer-yes,
+    .answer-no {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 2px solid #ffc9e3;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 140ms ease;
+    }
+    .answer-yes {
+      position: relative;
+      z-index: 2;
+      color: #ffeef7;
+      background: linear-gradient(135deg, #ff5ea5, #cc0051);
+      box-shadow: 0 10px 18px rgba(41, 0, 13, 0.4);
+    }
+    .answer-no {
+      position: absolute;
+      left: 58%;
+      top: 8px;
+      color: #ffdeed;
+      background: linear-gradient(135deg, #8c234f, #621137);
+      box-shadow: 0 8px 14px rgba(26, 0, 9, 0.35);
+    }
+    .answer-yes:hover {
+      transform: translateY(-2px) scale(1.02);
+    }
     @keyframes shine {
       from { background-position: 0% center; }
       to { background-position: 260% center; }
@@ -98,6 +149,13 @@
 Watching a Romantic movie,
 Playing a game and relationship trivia
 xx If i was near then finally coitus ;) xx</p>
+    <section class="date-question" aria-label="Date confirmation">
+      <h2 class="q-title">Are you ready for the date?</h2>
+      <div class="answers" id="answersWrap">
+        <a class="answer-yes" href="date-ready.html">I'm in Baby</a>
+        <button type="button" class="answer-no" id="noBusyBtn">No, I'm busy</button>
+      </div>
+    </section>
     <a class="back" href="yay.html">Back</a>
   </main>
   <audio id="loveAudio" preload="auto" loop hidden>
@@ -132,6 +190,27 @@ xx If i was near then finally coitus ;) xx</p>
       window.addEventListener("beforeunload", () => {
         sessionStorage.setItem(SONG_TIME_KEY, String(loveAudio.currentTime));
       });
+    })();
+
+    (function () {
+      const noBtn = document.getElementById("noBusyBtn");
+      const wrap = document.getElementById("answersWrap");
+      if (!noBtn || !wrap) return;
+
+      function dodge() {
+        const wrapRect = wrap.getBoundingClientRect();
+        const btnRect = noBtn.getBoundingClientRect();
+        const maxX = Math.max(0, wrapRect.width - btnRect.width - 4);
+        const maxY = Math.max(0, wrapRect.height - btnRect.height - 4);
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
+        noBtn.style.left = `${x}px`;
+        noBtn.style.top = `${y}px`;
+      }
+
+      noBtn.addEventListener("mouseenter", dodge);
+      noBtn.addEventListener("click", dodge);
+      dodge();
     })();
   </script>
   <script src="transition.js"></script>
