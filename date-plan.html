@@ -21,6 +21,17 @@
         linear-gradient(160deg, #180006, #32000d 34%, #560016 66%, #7f0024 100%);
       color: #ffe6f2;
       overflow: hidden;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 360ms ease, transform 360ms ease;
+    }
+    body.page-ready {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    body.page-exit {
+      opacity: 0;
+      transform: translateY(8px);
     }
     .card {
       width: min(760px, 92vw);
@@ -120,5 +131,6 @@ xx If i was near then finally coitus ;) xx</p>
       });
     })();
   </script>
+  <script src="transition.js"></script>
 </body>
 </html>
