@@ -56,13 +56,12 @@
       font-family: "Baloo 2", sans-serif;
       font-size: clamp(28px, 5vw, 52px);
       line-height: 1.2;
-      background-image: linear-gradient(120deg, #ff8cc4 0%, #ffd5ec 22%, #ff67af 45%, #ffe0f0 67%, #ff8cc4 100%);
-      background-size: 260% auto;
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      animation: shine 2.8s linear infinite;
-      text-shadow: 0 2px 10px rgba(46, 0, 14, 0.38);
+      color: #ff9ac9;
+      text-shadow:
+        0 1px 0 #ffc3df,
+        0 2px 0 #ffb3d7,
+        0 3px 0 #ff9cc8,
+        0 4px 10px rgba(46, 0, 14, 0.38);
     }
     .back {
       display: inline-block;
@@ -75,15 +74,11 @@
       background: linear-gradient(135deg, #ff5ea5, #cc0051);
       border: 2px solid #ffc9e3;
     }
-    @keyframes shine {
-      from { background-position: 0% center; }
-      to { background-position: 260% center; }
-    }
   </style>
 </head>
 <body>
   <main class="card">
-    <img class="batman" src="assets/love-batman.gif" alt="love-batman" />
+    <img class="batman" src="assets/love-ba.gif" alt="love-ba" />
     <p class="msg">Okayy, See you then Babygirll byeeee Muaah &#128536;</p>
     <a class="back" href="date-plan.html">Back</a>
   </main>

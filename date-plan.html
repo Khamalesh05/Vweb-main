@@ -50,12 +50,12 @@
       text-align: center;
       font-family: "Baloo 2", sans-serif;
       font-size: clamp(30px, 5vw, 50px);
-      background-image: linear-gradient(120deg, #ff8cc4 0%, #ffd5ec 22%, #ff67af 45%, #ffe0f0 67%, #ff8cc4 100%);
-      background-size: 260% auto;
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      animation: shine 2.8s linear infinite;
+      color: #ff9ac9;
+      text-shadow:
+        0 1px 0 #ffc3df,
+        0 2px 0 #ffb3d7,
+        0 3px 0 #ff9cc8,
+        0 4px 10px rgba(46, 0, 14, 0.38);
     }
     .item {
       margin: 8px 0;
@@ -129,13 +129,14 @@
       color: #ffdeed;
       background: linear-gradient(135deg, #8c234f, #621137);
       box-shadow: 0 8px 14px rgba(26, 0, 9, 0.35);
+      animation: noWiggle 1.2s ease-in-out infinite;
     }
     .answer-yes:hover {
       transform: translateY(-2px) scale(1.02);
     }
-    @keyframes shine {
-      from { background-position: 0% center; }
-      to { background-position: 260% center; }
+    @keyframes noWiggle {
+      0%, 100% { transform: rotate(-2deg) scale(1); }
+      50% { transform: rotate(2deg) scale(1.04); }
     }
   </style>
 </head>
@@ -206,10 +207,20 @@ xx If i was near then finally coitus ;) xx</p>
         const y = Math.random() * maxY;
         noBtn.style.left = `${x}px`;
         noBtn.style.top = `${y}px`;
+        noBtn.style.transform = `rotate(${(Math.random() * 10) - 5}deg) scale(${1 + (Math.random() * 0.08)})`;
       }
 
-      noBtn.addEventListener("mouseenter", dodge);
-      noBtn.addEventListener("click", dodge);
+      const playfulNoTexts = ["No, I'm busy", "Catch me first", "Nope hehe", "Not today"];
+      let noIndex = 0;
+
+      function playfulDodge() {
+        noIndex = (noIndex + 1) % playfulNoTexts.length;
+        noBtn.textContent = playfulNoTexts[noIndex];
+        dodge();
+      }
+
+      noBtn.addEventListener("mouseenter", playfulDodge);
+      noBtn.addEventListener("click", playfulDodge);
       dodge();
     })();
   </script>

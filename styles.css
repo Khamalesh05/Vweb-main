@@ -223,13 +223,12 @@ h1 {
 }
 
 .glitter-text {
-  background-image: linear-gradient(120deg, #ff8cc4 0%, #ffc6e6 18%, #ff63ad 34%, #ffd3eb 48%, #ff5aa8 62%, #ffd0ea 82%, #ff8cc4 100%);
-  background-size: 260% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: glitterShift 2.6s linear infinite;
-  filter: drop-shadow(0 0 10px rgba(255, 107, 173, 0.28));
+  color: #ff9ac9;
+  text-shadow:
+    0 1px 0 #ffc3df,
+    0 2px 0 #ffb3d7,
+    0 3px 0 #ff9cc8,
+    0 4px 8px rgba(88, 0, 33, 0.38);
 }
 
 .sub {
@@ -356,11 +355,6 @@ h1 {
     transform: translateY(0);
     opacity: 1;
   }
-}
-
-@keyframes glitterShift {
-  from { background-position: 0% center; }
-  to { background-position: 260% center; }
 }
 
 @keyframes heartbeat {
