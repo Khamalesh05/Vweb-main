@@ -1,5 +1,5 @@
 (() => {
-  const DURATION_MS = 360;
+  const DURATION_MS = 700;
 
   function isInternalNavigation(link) {
     if (!link || !link.href) return false;
