@@ -72,8 +72,7 @@
       top: -4px;
       left: 50%;
       transform: translateX(-50%) scaleX(var(--flip));
-      font-size: clamp(28px, 4.2vw, 46px);
-      letter-spacing: -3px;
+      font-size: clamp(30px, 4.4vw, 52px);
       color: #ffe2f1;
       text-shadow: 0 0 8px rgba(255, 122, 177, 0.6);
       animation: burstPop 1.15s ease-in-out infinite;
@@ -176,8 +175,8 @@
   </style>
 </head>
 <body>
-  <div class="popper left" aria-hidden="true"><span class="burst">&#10022;&#10023;&#10022;</span><span class="cone"></span></div>
-  <div class="popper right" aria-hidden="true"><span class="burst">&#10022;&#10023;&#10022;</span><span class="cone"></span></div>
+  <div class="popper left" aria-hidden="true"><span class="burst">&#127882;</span><span class="cone"></span></div>
+  <div class="popper right" aria-hidden="true"><span class="burst">&#127882;</span><span class="cone"></span></div>
   <div class="confetti" id="confetti" aria-hidden="true"></div>
   <div class="heart-bg" aria-hidden="true">
     <span class="h1">&#10084;</span><span class="h2">&#10084;</span><span class="h3">&#10084;</span><span class="h4">&#10084;</span>
@@ -189,6 +188,9 @@
     <p class="love">Love you Babygirl</p>
     <a class="plan-link" href="date-plan.html">Check out our date Plan</a>
   </main>
+  <audio id="loveAudio" preload="auto" loop hidden>
+    <source src="assets/song.mp3" type="audio/mpeg" />
+  </audio>
   <script>
     (function () {
       const confettiRoot = document.getElementById("confetti");
@@ -208,6 +210,36 @@
         bit.style.transform = `rotate(${Math.random() * 360}deg)`;
         confettiRoot.appendChild(bit);
       }
+    })();
+
+    (function () {
+      const loveAudio = document.getElementById("loveAudio");
+      const SONG_TIME_KEY = "love_song_time";
+      const SONG_PLAY_KEY = "love_song_should_play";
+      if (!loveAudio) return;
+
+      const savedTime = Number(sessionStorage.getItem(SONG_TIME_KEY));
+      const shouldPlay = sessionStorage.getItem(SONG_PLAY_KEY) !== "0";
+
+      if (!Number.isNaN(savedTime) && savedTime > 0) {
+        loveAudio.currentTime = savedTime;
+      }
+
+      if (shouldPlay) {
+        loveAudio.play().then(() => {
+          sessionStorage.setItem(SONG_PLAY_KEY, "1");
+        }).catch(() => {
+          sessionStorage.setItem(SONG_PLAY_KEY, "0");
+        });
+      }
+
+      loveAudio.addEventListener("timeupdate", () => {
+        sessionStorage.setItem(SONG_TIME_KEY, String(loveAudio.currentTime));
+      });
+
+      window.addEventListener("beforeunload", () => {
+        sessionStorage.setItem(SONG_TIME_KEY, String(loveAudio.currentTime));
+      });
     })();
   </script>
 </body>

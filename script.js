@@ -3,6 +3,8 @@ const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
 const bgHearts = document.getElementById("bgHearts");
 const loveAudio = document.getElementById("loveAudio");
+const SONG_TIME_KEY = "love_song_time";
+const SONG_PLAY_KEY = "love_song_should_play";
 
 let noClicks = 0;
 let isPlaying = false;
@@ -54,19 +56,43 @@ function autoPlaySong() {
     return;
   }
 
+  const savedTime = Number(sessionStorage.getItem(SONG_TIME_KEY));
+  const shouldPlay = sessionStorage.getItem(SONG_PLAY_KEY) !== "0";
+
+  if (!Number.isNaN(savedTime) && savedTime > 0) {
+    loveAudio.currentTime = savedTime;
+  }
+
+  if (!shouldPlay) {
+    isPlaying = false;
+    return;
+  }
+
   loveAudio.play().then(() => {
     isPlaying = true;
+    sessionStorage.setItem(SONG_PLAY_KEY, "1");
   }).catch(() => {
     isPlaying = false;
+    sessionStorage.setItem(SONG_PLAY_KEY, "0");
   });
 }
 
 if (loveAudio) {
+  loveAudio.addEventListener("timeupdate", () => {
+    sessionStorage.setItem(SONG_TIME_KEY, String(loveAudio.currentTime));
+  });
+
   loveAudio.addEventListener("ended", () => {
     isPlaying = false;
+    sessionStorage.setItem(SONG_PLAY_KEY, "0");
   });
 
   loveAudio.addEventListener("error", () => {});
+
+  window.addEventListener("beforeunload", () => {
+    sessionStorage.setItem(SONG_TIME_KEY, String(loveAudio.currentTime));
+    sessionStorage.setItem(SONG_PLAY_KEY, isPlaying ? "1" : "0");
+  });
 }
 
 createFloatingHearts();
