@@ -20,7 +20,8 @@
         radial-gradient(circle at 84% 20%, rgba(255, 108, 160, 0.18), transparent 38%),
         linear-gradient(160deg, #180006, #32000d 34%, #560016 66%, #7f0024 100%);
       color: #ffe6f2;
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: auto;
       opacity: 0;
       transform: translateY(14px) scale(0.994);
       filter: blur(4px);
@@ -137,6 +138,31 @@
     @keyframes noWiggle {
       0%, 100% { transform: rotate(-2deg) scale(1); }
       50% { transform: rotate(2deg) scale(1.04); }
+    }
+    @media (max-width: 900px), (max-height: 760px) {
+      .card {
+        width: min(680px, 94vw);
+        padding: 18px 14px 16px;
+      }
+      .title {
+        font-size: clamp(24px, 4.8vw, 36px);
+      }
+      .item {
+        font-size: clamp(15px, 2.8vw, 20px);
+        margin: 6px 0;
+      }
+      .q-title {
+        font-size: clamp(20px, 3.8vw, 30px);
+      }
+      .answers {
+        min-height: 70px;
+      }
+      .answer-yes,
+      .answer-no,
+      .back {
+        padding: 9px 14px;
+        font-size: 14px;
+      }
     }
   </style>
 </head>

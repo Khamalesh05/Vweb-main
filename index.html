@@ -19,7 +19,8 @@
         radial-gradient(circle at 18% 14%, rgba(255, 140, 180, 0.22), transparent 36%),
         radial-gradient(circle at 82% 18%, rgba(255, 115, 165, 0.2), transparent 34%),
         linear-gradient(160deg, #180006, #32000d 34%, #560016 66%, #7f0024 100%);
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: auto;
       position: relative;
       opacity: 0;
       transform: translateY(14px) scale(0.994);
@@ -157,6 +158,12 @@
       .h1, .h2, .h3, .h4, .h5, .h6, .h7, .h8, .h9, .h10,
       .h11, .h12, .h13, .h14, .h15, .h16, .h17, .h18, .h19, .h20 {
         transform: scale(0.88);
+      }
+      .entry {
+        padding: 12px;
+      }
+      .envelope-link {
+        width: clamp(108px, 34vw, 144px);
       }
     }
   </style>
