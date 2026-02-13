@@ -138,17 +138,17 @@ body.page-exit {
 }
 
 .flower.peo {
-  transform: translate(-122px, -52px) rotate(-34deg);
+  transform: translate(-122px, -34px) rotate(-34deg);
   animation: flowerSwayLeft 3.1s ease-in-out infinite;
 }
 
 .flower.rose {
-  transform: translate(-50px, -74px) rotate(-8deg);
+  transform: translate(-50px, -56px) rotate(-8deg);
   animation: flowerSwayMid 2.7s ease-in-out infinite;
 }
 
 .flower.tulip {
-  transform: translate(24px, -54px) rotate(24deg);
+  transform: translate(24px, -36px) rotate(24deg);
   animation: flowerSwayRight 3.3s ease-in-out infinite;
 }
 
@@ -381,18 +381,18 @@ h1 {
 }
 
 @keyframes flowerSwayLeft {
-  0%, 100% { transform: translate(-122px, -52px) rotate(-34deg); }
-  50% { transform: translate(-122px, -52px) rotate(-26deg); }
+  0%, 100% { transform: translate(-122px, -34px) rotate(-34deg); }
+  50% { transform: translate(-122px, -34px) rotate(-26deg); }
 }
 
 @keyframes flowerSwayMid {
-  0%, 100% { transform: translate(-50px, -74px) rotate(-8deg); }
-  50% { transform: translate(-50px, -74px) rotate(-1deg); }
+  0%, 100% { transform: translate(-50px, -56px) rotate(-8deg); }
+  50% { transform: translate(-50px, -56px) rotate(-1deg); }
 }
 
 @keyframes flowerSwayRight {
-  0%, 100% { transform: translate(24px, -54px) rotate(24deg); }
-  50% { transform: translate(24px, -54px) rotate(16deg); }
+  0%, 100% { transform: translate(24px, -36px) rotate(24deg); }
+  50% { transform: translate(24px, -36px) rotate(16deg); }
 }
 
 @media (max-width: 640px) {
@@ -414,15 +414,15 @@ h1 {
   }
 
   .flower.peo {
-    transform: translate(-96px, -38px) rotate(-34deg);
+    transform: translate(-96px, -26px) rotate(-34deg);
   }
 
   .flower.rose {
-    transform: translate(-36px, -56px) rotate(-8deg);
+    transform: translate(-36px, -42px) rotate(-8deg);
   }
 
   .flower.tulip {
-    transform: translate(14px, -40px) rotate(24deg);
+    transform: translate(14px, -28px) rotate(24deg);
   }
 
   .photo-track {
