@@ -228,6 +228,17 @@ h1 {
   text-shadow: 0 2px 8px rgba(88, 0, 33, 0.28);
 }
 
+.valentine-text {
+  font-size: clamp(18px, 2.8vw, 34px);
+  line-height: 1.18;
+  max-width: none;
+}
+
+.valentine-line {
+  display: block;
+  white-space: nowrap;
+}
+
 .sub {
   margin: 0 auto 20px;
   max-width: 48ch;
@@ -444,6 +455,10 @@ h1 {
 
   .corner-heart.right {
     right: 10px;
+  }
+
+  .valentine-text {
+    font-size: clamp(14px, 3.6vw, 24px);
   }
 }
 
