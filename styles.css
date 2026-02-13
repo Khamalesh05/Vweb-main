@@ -225,11 +225,7 @@ h1 {
 
 .glitter-text {
   color: #ff9ac9;
-  text-shadow:
-    0 1px 0 #ffc3df,
-    0 2px 0 #ffb3d7,
-    0 3px 0 #ff9cc8,
-    0 4px 8px rgba(88, 0, 33, 0.38);
+  text-shadow: 0 2px 8px rgba(88, 0, 33, 0.28);
 }
 
 .sub {
